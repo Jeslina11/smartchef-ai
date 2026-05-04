@@ -1,0 +1,129 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fdfbf7;
+}
+
+/* CARD */
+.card-resep {
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    transition: 0.15s;
+    background-color: #fff;
+    padding: 12px; /* lebih compact */
+}
+
+/* HOVER */
+.card-resep:hover {
+    transform: none;
+    box-shadow: 0 5px 14px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+.card-resep h3 {
+    margin-bottom: 3px;
+    font-size: 1.05rem;
+}
+
+/* TEXT */
+.card-resep p {
+    margin-bottom: 3px;
+    font-size: 0.85rem;
+}
+
+/* BADGE */
+.badge-bahan {
+    background: #dff3e4;
+    color: #1b5e20;
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-size: 0.72rem;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+/* PROGRESS */
+.progress {
+    height: 6px;
+    border-radius: 8px;
+    margin-top: 2px;
+    margin-bottom: 4px; /* FIX jarak bawah */
+}
+
+/* GARIS PEMBATAS */
+.section-divider {
+    border-top: 1px solid #eee;
+    margin: 6px 0; 
+}
+
+/* BUTTON */
+.btn-resep {
+    background: #28a745;
+    color: white;
+    border-radius: 8px;
+    font-weight: 500;
+    border: none;
+    padding: 6px;
+    font-size: 0.82rem;
+}
+
+.btn-resep:hover {
+    background: #218838;
+}
+
+/* COLLAPSE */
+.collapse-content {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 8px; /* lebih padat */
+    margin-top: 6px;
+    border-left: 3px solid #28a745;
+}
+
+/* LIST */
+.recipe-list {
+    padding-left: 14px;
+    margin-bottom: 6px;
+}
+
+.recipe-list li {
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+    color: #555;
+    line-height: 1.25; /* FIX utama biar gak renggang */
+}
+
+/* RECIPE ITEM */
+.recipe-item {
+    margin-bottom: 10px;
+}
+
+/* SMALL LABEL */
+.small {
+    font-size: 0.78rem !important;
+    margin-bottom: 2px !important;
+}
+
+/* FIX SPACING BOOTSTRAP */
+.mb-3 {
+    margin-bottom: 6px !important;
+}
+
+.mb-2 {
+    margin-bottom: 4px !important;
+}
+
+/* KHUSUS BAGIAN FLOW  */
+.card-resep .progress + p {
+    margin-top: 2px;
+}
+
+.card-resep .progress {
+    margin-bottom: 2px;
+}
+
+.card-resep .badge-bahan {
+    margin-top: 2px;
+}

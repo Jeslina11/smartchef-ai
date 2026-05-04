@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Rekomendasi</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/result.css"/>
+</head>
+<body>
+<div class="container mt-5 mb-5">
+
+    <!-- HEADER -->
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Hasil Analisis AI</h2>
+        <p class="text-muted">Bahan yang berhasil dideteksi:</p>
+        <div>
+            {% for b in bahan %}
+            <span class="badge bg-success rounded-pill px-3 py-2 fs-6 mb-2">
+                {{ b.capitalize() }}
+            </span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <h4 class="mb-4 text-secondary">Rekomendasi Menu Terbaik:</h4>
+
+    {% if not resep_list %}
+    <div class="alert alert-warning text-center">
+        Maaf, belum ada resep yang cocok 😔
+    </div>
+    {% else %}
+
+    <div class="row" id="recipe-grid">
+        {% for resep in resep_list %}
+
+        <div class="col-md-6 recipe-item">
+            <div class="card card-resep p-4">
+
+                <!-- JUDUL -->
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h3 class="mb-0 fw-bold fs-5">{{ resep.nama }}</h3>
+                    <span class="badge bg-warning text-dark">
+                        {{ resep.kategori.upper() }}
+                    </span>
+                </div>
+
+                <!-- PROGRESS -->
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between small text-muted mb-1">
+                        <span>Tingkat Kecocokan</span>
+                        <span class="fw-bold text-success">{{ resep.persentase }}%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" style="width: {{ resep.persentase }}%"></div>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- BAHAN YANG DIMILIKI -->
+                <p class="small text-muted mb-1">Bahan yang kamu punya:</p>
+                <div class="mb-2">
+                    {% for b in resep.bahan_cocok %}
+                    <span class="badge badge-bahan">{{ b }}</span>
+                    {% endfor %}
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- BUTTON -->
+                <button class="btn btn-resep w-100"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#detail-{{ loop.index }}">
+                    Lihat Cara Masak 👨‍🍳
+                </button>
+
+                <!-- DETAIL -->
+                <div class="collapse" id="detail-{{ loop.index }}">
+                    <div class="collapse-content mt-3">
+
+                        <!-- BAHAN LENGKAP -->
+                        <strong class="small d-block mb-2">🛒 Bahan Lengkap:</strong>
+                        <ul class="recipe-list">
+                            {% for item in resep.bahan_lengkap.split('--') %}
+                                {% if item.strip() %}
+                                <li>{{ item.strip() }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+
+                        <!-- LANGKAH -->
+                        <strong class="small d-block mb-2">🔥 Langkah Memasak:</strong>
+                        <p class="small text-muted">
+                            {{ resep.langkah }}
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="text-center mt-5">
+        <a href="/" class="btn btn-secondary rounded-pill px-4">
+            ⬅ Kembali ke Beranda
+        </a>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

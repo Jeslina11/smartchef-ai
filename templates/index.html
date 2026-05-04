@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartChef AI – Masak Cerdas & Ceria!</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="static/style.css"/>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <i class="fas fa-leaf"></i>
+        SmartChef<span>AI</span>
+      </a>
+      <!-- HAMBURGER -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#technology">Technology</a>
+        <a href="#features">Features</a>
+        <a href="#try-app" class="btn-try">Try Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-main">
+      <div class="hero-content animate__animated animate__fadeInLeft">
+        <div class="hero-badge">Powered by YOLO & Sistem Pakar</div>
+        <h1>Masak <span>Cerdas</span> dengan AI</h1>
+        <p>Bingung mau masak apa dengan bahan di dapur? Foto bahannya, dan biarkan AI mencarikan resep terbaik untukmu dalam hitungan detik.</p>
+        <div class="hero-btns">
+          <button class="btn-main" onclick="document.getElementById('try-app').scrollIntoView({behavior: 'smooth'})">
+            <i class="fas fa-arrow-right"></i> Mulai Deteksi
+          </button>
+          <a href="#about" class="btn-secondary">
+            <i class="fas fa-book-open"></i> Pelajari Dulu
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual animate__animated animate__fadeInRight">
+      <img src="/static/hero_image.png" alt="Hero Image" class="hero-image">
+      </div>
+    </div>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar animate__animated animate__fadeInUp">
+      <div class="stat-item">
+        <h3>80.06%</h3>
+        <p>Akurasi mAP</p>
+      </div>
+      <div class="stat-item">
+        <h3>45</h3>
+        <p>Kategori Bahan</p>
+      </div>
+      <div class="stat-item">
+        <h3>1.050</h3>
+        <p>Resep Tersimpan</p>
+      </div>
+      <div class="stat-item">
+        <h3>100%</h3>
+        <p>Akurasi Logika</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="container">
+      <div class="sec-header">
+        <h2>About SmartChef AI</h2>
+        <div class="divider"></div>
+        <p>SmartChef AI adalah Proyek skripsi inovatif yang menggabungkan Computer Vision dengan Database Kuliner Nusantara untuk solusi dapur masa kini.Proyek ini dirancang untuk mengurangi limbah makanan rumah tangga dengan memaksimalkan bahan yang sudah tersedia di dapur Anda.</p>
+        <p>Sistem bekerja dengan mendeteksi objek bahan makanan secara real-time menggunakan kamera atau foto, lalu mencocokkannya dengan ribuan resep menggunakan algoritma Backward Chaining yang cerdas.</p>
+      </div>
+      
+      <!-- Main About Grid -->
+      <div class="about-grid">
+        <div class="about-image animate__animated animate__fadeIn">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop" alt="About">
+        </div>
+        <div class="about-text">
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div>
+                <h5>Deteksi Visual Otomatis</h5>
+                <p>Model YOLOv11m mendeteksi 45 kategori bahan makanan Indonesia secara real-time dari foto atau kamera.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div>
+                <h5>Sistem Pakar Berbasis Aturan</h5>
+                <p>Mesin inferensi Backward Chaining mencocokkan fakta deteksi dengan 1.050 aturan resep secara sistematis.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div>
+                <h5>Rekomendasi Masakan Nusantara</h5>
+                <p>Resep diprioritaskan berdasarkan persentase kecocokan bahan — resep dengan ≥50% bahan tersedia akan direkomendasikan.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Steps Integration -->
+      <div class="steps-container">
+        <div class="sec-header">
+          <h3>Dari Foto → Resep dalam 5 Langkah</h3>
+          <p>Alur kerja terintegrasi yang bekerja secara otomatis.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-num">📸</span>
+            <h5>Upload Foto</h5>
+            <p>Ambil foto bahan atau unggah dari galeri.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">⚙️</span>
+            <h5>Preprocessing</h5>
+            <p>Resize & normalisasi citra otomatis.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">🎯</span>
+            <h5>Deteksi YOLO</h5>
+            <p>Identifikasi 45 kategori bahan masakan.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">🔗</span>
+            <h5>String Match</h5>
+            <p>Pemetaan label ke database resep.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">🍽️</span>
+            <h5>Rekomendasi</h5>
+            <p>Sajian resep yang paling cocok.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Integration -->
+      <div class="dataset-container">
+        <div class="sec-header">
+          <h3>45 Kategori Bahan Masakan Indonesia</h3>
+          <p>Dataset komprehensif yang mencakup berbagai bahan pangan utama.</p>
+        </div>
+        <div class="cat-grid">
+          <div class="cat-card">
+            <img src="/static/protein.png" class="cat-icon">
+            <h5>Protein</h5>
+            <span class="count">12</span>
+            <span class="label">Kategori</span>
+            <div class="cat-items">Ayam, Sapi, Kambing, Ikan, Udang, Telur, Tempe, Tahu, Bakso, Cumi, Sosis</div>
+          </div>
+          <div class="cat-card">
+            <img src="/static/sayur.png" class="cat-icon">
+            <h5>Sayuran</h5>
+            <span class="count">19</span>
+            <span class="label">Kategori</span>
+            <div class="cat-items">Bayam, Kangkung, Wortel, Tomat, Terong, Kentang, Jagung, Jamur, Buncis, Kol, Sawi</div>
+          </div>
+          <div class="cat-card">
+            <img src="/static/bumbu.png" class="cat-icon">
+            <h5>Bumbu</h5>
+            <span class="count">9</span>
+            <span class="label">Kategori</span>
+            <div class="cat-items">Bawang Merah, Putih, Bombay, Cabai, Jahe, Serai, Paprika, Nipis, Daun Bawang</div>
+          </div>
+          <div class="cat-card">
+            <img src="/static/karbo.png" alt="karbo icon" class="cat-icon">
+            <h5>Karbo</h5>
+            <span class="count">5</span>
+            <span class="label">Kategori</span>
+            <div class="cat-items">Beras, Nasi, Mie, Bihun, Tauge</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Food Waste as Powerful Closing of About -->
+      <div class="fw-section animate__animated animate__fadeInUp">
+        <div class="fw-container">
+          <div class="fw-text">
+            <h2>Indonesia Buang <span>23–48 Juta Ton</span> Makanan Setiap Tahun</h2>
+            <p>SmartChef AI hadir sebagai solusi teknologi untuk mendukung pengurangan food loss & waste melalui optimasi pemanfaatan bahan pangan yang sudah ada di rumah Anda.</p>
+          </div>
+          <div class="fw-stats">
+            <div class="fw-stat">
+              <span class="num">60%</span>
+              <p><strong>Rumah tangga</strong> adalah sumber terbesar limbah makanan di Indonesia.</p>
+            </div>
+            <div class="fw-stat">
+              <span class="num">551T</span>
+              <p>Kerugian ekonomi nasional mencapai <strong>213–551 triliun rupiah</strong> per tahun.</p>
+            </div>
+            <div class="fw-stat">
+              <span class="num">184 kg</span>
+              <p>Rata-rata limbah <strong>per orang per tahun</strong> di Indonesia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY SECTION -->
+<section id="technology">
+  <div class="container">
+    <div class="sec-header">
+      <h2>Core Technology</h2>
+      <div class="divider"></div>
+      <p>Dibangun dengan teknologi kecerdasan buatan terkini untuk performa deteksi yang cepat dan akurat.</p>
+    </div>
+
+    <div class="tech-grid">
+
+      <div class="tech-card">
+        <div class="tech-left">
+          <div class="tech-icon"><i class="fas fa-eye"></i></div>
+          <span class="tech-badge">mAP 80.06%</span>
+        </div>
+        <div class="tech-right">
+          <h4>YOLOv11m</h4>
+          <p>Model deteksi objek one-stage terkini dari Ultralytics. Unggul dalam kecepatan & akurasi.</p>
+        </div>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-left">
+          <div class="tech-icon"><i class="fab fa-python"></i></div>
+          <span class="tech-badge">Backend API</span>
+        </div>
+        <div class="tech-right">
+          <h4>Python Flask</h4>
+          <p>Backend server yang ringan untuk memproses logika sistem pakar secara terintegrasi.</p>
+        </div>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-left">
+          <div class="tech-icon"><i class="fas fa-database"></i></div>
+          <span class="tech-badge">1.050 Resep</span>
+        </div>
+        <div class="tech-right">
+          <h4>SQLite + Backward Chaining</h4>
+          <p>Database relasional menyimpan 1.050 resep lengkap dengan mesin inferensi goal-driven.</p>
+        </div>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-left">
+          <div class="tech-icon"><i class="fas fa-image"></i></div>
+          <span class="tech-badge">23.469 Citra</span>
+        </div>
+        <div class="tech-right">
+          <h4>Roboflow + Augmentasi</h4>
+          <p>Platform anotasi dataset yang memperluas data pelatihan hingga 23.469 citra.</p>
+        </div>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-left">
+          <div class="tech-icon"><i class="fas fa-code"></i></div>
+          <span class="tech-badge">GPU Accelerated</span>
+        </div>
+        <div class="tech-right">
+          <h4>Ultralytics + PyTorch</h4>
+          <p>Framework deep learning utama untuk training, fine-tuning, dan inferensi model YOLO.</p>
+        </div>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-left">
+          <div class="tech-icon"><i class="fas fa-text-slash"></i></div>
+          <span class="tech-badge">99.87% Match Rate</span>
+        </div>
+        <div class="tech-right">
+          <h4>Flexible String Matching</h4>
+          <p>Kombinasi Regex mengatasi variasi penulisan nama bahan dengan akurasi sangat tinggi.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- FEATURES SECTION -->
+  <section id="features">
+    <div class="container">
+      <div class="sec-header">
+        <h2>Key Features</h2>
+        <div class="divider"></div>
+        <p>Fitur unggulan yang dirancang khusus untuk memudahkan pengalaman memasak harian Anda.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fas fa-bolt"></i></div>
+          <div>
+            <h5>Real-time Detection</h5>
+            <p>AI akan menganalisis bahan makanan Anda dalam hitungan milidetik saja.</p>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fas fa-mobile-alt"></i></div>
+          <div>
+            <h5>Mobile Friendly</h5>
+            <p>Tampilan responsif yang nyaman digunakan di smartphone maupun desktop.</p>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fas fa-utensils"></i></div>
+          <div>
+            <h5>Smart Recipe Match</h5>
+            <p>Mencocokkan bahan dengan ribuan resep nusantara yang paling relevan.</p>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fas fa-percentage"></i></div>
+          <div>
+            <h5>Detailed Analysis</h5>
+            <p>Dapatkan skor kecocokan persentase yang detail untuk setiap resep.</p>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fas fa-camera"></i></div>
+          <div>
+            <h5>Kamera & Upload</h5>
+            <p>Input fleksibel: ambil foto langsung atau unggah dari galeri perangkat.</p>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fas fa-leaf"></i></div>
+          <div>
+            <h5>Kurangi Food Waste</h5>
+            <p>Optimalkan bahan yang tersedia untuk membantu melestarikan lingkungan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRY APP SECTION -->
+  <section id="try-app">
+    <div class="container">
+      <div class="sec-header">
+        <h2>Try It Yourself</h2>
+        <div class="divider"></div>
+        <p>Pilih metode input di bawah ini untuk mulai mencari resep masakan Anda.</p>
+      </div>
+      
+      <div style="max-width: 900px; margin: 0 auto;">
+        <div class="app-section">
+          <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('upload', this)">Upload Foto</button>
+            <button class="tab-btn" onclick="openCameraTab(this)">Gunakan Kamera</button>
+          </div>
+
+          <div id="tab-upload" class="tab-content active">
+            <form action="/" method="post" enctype="multipart/form-data">
+              
+              <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h4>Drag & Drop atau Klik untuk pilih foto</h4>
+                <p>Format JPG, PNG, WEBP · Maks 10MB</p>
+              </div>
+
+              <input type="file" name="file" id="fileInput" style="display: none;" accept="image/*" onchange="handleFile(this)" required>
+
+              <div id="preview-container" style="display: none; margin-top: 30px;">
+                <img id="preview-img" style="max-width: 100%; border-radius: 20px;">
+              </div>
+
+              <button type="submit" class="btn-main" style="width: 100%; margin-top: 30px; justify-content: center;">
+                <i class="fas fa-magic"></i> Analisis Foto Sekarang
+              </button>
+
+            </form>
+          </div>
+
+          <div id="tab-camera" class="tab-content">
+            <video id="video" autoplay playsinline style="width:100%; border-radius:20px;"></video>
+
+            <form id="camera_form" action="/" method="post">
+              <input type="hidden" name="camera_data" id="camera_data">
+              <button type="button" class="btn-main" onclick="captureAndSubmit()" style="margin-top:20px;">
+                Ambil & Analisis
+              </button>
+            </form>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo"><i class="fas fa-leaf"></i> SmartChef<span>AI</span></div>
+          <p class="footer-text">Sistem Pakar & Computer Vision untuk deteksi bahan masakan. Membantu Anda menemukan inspirasi menu lezat dari bahan yang tersedia di rumah.</p>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/_jslnaa" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/Jeslina11" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jeslinakondo" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#technology">Technology</a></li>
+            <li><a href="#features">Features</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>Teknologi Utama</h5>
+          <ul>
+            <li><a href="#technology">YOLOv11m Object Detection</a></li>
+            <li><a href="#technology">Python Flask Backend</a></li>
+            <li><a href="#technology">Backward Chaining Logic</a></li>
+            <li><a href="#technology">Nusantara Recipe Database</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <span>© 2026 Sistem Deteksi Bahan & Rekomendasi Resep Masakan</span>
+      </div>
+    </div>
+  </footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
